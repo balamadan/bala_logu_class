@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">	
+	
+	<bean id="aspectImplement" class="aop.AspectImplement">
+	</bean>
+	<bean id="aspect" class="aop.aspect">
+	</bean>
+	
+	<aop:config>
+	
+	<aop:aspect id="logaspect" ref="aspect">
+	
+	<aop:pointcut expression="execution( * aop.AspectImplement.print(..))" id="pointcutmethod"/>
+	
+	<aop:before method="logBefore" pointcut-ref="pointcutmethod"/>
+	<aop:after method="logAfter" pointcut-ref="pointcutmethod"/>
+	</aop:aspect>
+	
+	
+	</aop:config>
+	
+	</beans>

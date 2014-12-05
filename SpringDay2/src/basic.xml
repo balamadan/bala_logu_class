@@ -1,0 +1,56 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+ 
+	<context:annotation-config />
+	
+	<context:component-scan base-package="com.example.basic" />
+	
+	<bean id="customerinfo" class="com.example.basic.CustomerInfo">
+		<property name="name" value="Spring demo">
+		</property>
+	</bean>
+
+	<bean name="address" class="com.example.basic.Address">
+		<property name="street" value="First Street">
+		</property>
+	</bean>
+	
+	<bean name="childaddress" class="com.example.basic.ChildAddress">
+		<property name="street" value="First Street">
+		</property>
+	</bean>
+	
+
+	<bean name="accountdetails" class="com.example.basic.AccountDetails"  destroy-method="des" scope="singleton">
+	
+	<property name="message">
+	<value>mm</value>
+	</property>
+		<property name="cusInfo">
+			<ref bean="customerinfo" />
+		</property>
+		<property name="add">
+			<ref bean="childaddress" />
+		</property>     
+	</bean>
+	
+	<!--<bean class="com.example.basic.PostProcess"></bean>
+	--><!--  <bean id="accountdetails1" class="com.example.basic.AccountDetails" 
+             p:cusInfo-ref="customerinfo" p:add-ref="address" />
+
+ -->
+</beans>
+
+
+
+
+
+
+
+
+

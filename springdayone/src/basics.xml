@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean name="customerinfo" class="com.example.basic.CustomerInfo">
+		<property name="name" value="Spring demo">
+		</property>
+	</bean>
+	
+	<bean name="address" class="com.example.basic.Address">
+		<property name="street" value="First Street">
+		</property>
+	</bean>
+	<bean id="accountdetails" class="com.example.basic.AccountDetails" scope="prototype">
+		<property name="cusInfo">
+			<ref bean="customerinfo" />
+		</property>
+		<property name="add">
+			<ref bean="address" />
+		</property>
+	</bean>
+	
+	<bean id="accountdetails1" class="com.example.basic.AccountDetails" 
+             p:cusInfo-ref="customerinfo" p:add-ref="address" />
+	
+	
+</beans>

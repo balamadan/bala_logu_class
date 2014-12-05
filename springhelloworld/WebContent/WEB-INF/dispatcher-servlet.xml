@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix">
+            <value>/WEB-INF/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+     <bean name="welcomebean" class="com.vaannila.HelloWorldController" >
+        <property name="message" value="Hello World!!!!!!!!!" />
+    </bean>
+    
+    <bean name="testbean" class="com.vaannila.TestController" >
+        
+    </bean>
+    
+    <bean name="Agebean" class="com.vaannila.AgeController" >
+        
+    </bean>
+    <bean name="PageFourbean" class="com.vaannila.PageFourController" >
+        
+    </bean>
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	   <property name="mappings">
+		<props>
+		   <prop key="/welcome.htm">welcomebean</prop>
+		   <prop key="/test.htm">testbean</prop>
+		   <prop key="/age.htm">Agebean</prop>
+		    <prop key="/page4.htm">PageFourbean</prop>
+		 </props>
+	   </property>
+	</bean>
+    
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
